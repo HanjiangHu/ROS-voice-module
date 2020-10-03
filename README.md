@@ -11,7 +11,7 @@ Ubuntu 16.04, ROS Kinetic
 
 `sudo apt-get install vlc`
 
-###How to run
+### How to run
 Recognize the specific Chinese keywords like ("杯子"(cup),"铅笔"(pencil),"鼠标"(mouse),"餐巾纸"(tissue),"书"(book)), and make sure the network is well connected.
 
 Open four terminal and input the following four commands

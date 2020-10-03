@@ -1,35 +1,29 @@
-# ROS_voice
-this package is python package for ROS speech, which use online baidu speech to do TTS and speech recognition.
+# ros voice module
+This module is for simple Chinese speech extraction and recognition based on online [baidu speech](http://wiki.ros.org/baidu_speech)
 
-this code is run well in ubuntu 14.04, thinkpad T44s.
+### Environment
+Ubuntu 16.04, ROS Kinetic
 
-you can visit the baidu speech home page at here: http://yuyin.baidu.com/
+### Preparation
+`sudo apt-get install python-pyaudio`
 
-the key and id is show below, feel free to change it in simple_speaker.launch and simple_voice.launch.
+`sudo apt-get install python-requests`
 
-App ID: 8168466
-API Key: pmUzrWcsA3Ce7RB5rSqsvQt2
-Secret Key: d39ec848d016a8474c7c25e308b310c3
-subscribe topic
+`sudo apt-get install vlc`
 
-speak_string #type string
-How to run:
+###How to run
+Recognize the specific Chinese keywords like ("杯子"(cup),"铅笔"(pencil),"鼠标"(mouse),"餐巾纸"(tissue),"书"(book)), and make sure the network is well connected.
 
-Speech Recognition:　roslaunch simple_voice simple_voice.launch
-Text To Speech: roslaunch simple_voice simple_speaker.launch
-wiki
+Open four terminal and input the following four commands
 
-http://wiki.ros.org/baidu_speech
-#关于毕设，ubuntu16.04
-1.安装pyaodio：<br>
-sudo apt-get install python-pyaudio<br>
-2.安装requests：<br>
-sudo apt-get install python-requests <br>
-3.安装vlc：<br>
-sudo apt-get install vlc <br>
-4.现在可以实现对特定关键词（"杯子","铅笔","鼠标","餐巾纸","书"）进行识别以及简单的辅助人机对话，测试前电脑最好连接好网络，有时有bug，测试方法：<br>
-终端1：roscore <br>
-终端2：roslaunch simple_voice simple_voice.launch <br>
-终端3：rosrun simple_voice recognition.py <br>
-终端4：roslaunch simple_voice simple_speaker.launch 以上基本就可以运行了，如果电脑说不出话可以用下面指令让他说：大家好！ 之后再在终端2按enter重新说需要什么 <br>
-终端5：rostopic pub /speak_string std_msgs/String -- '大家好！'<br>
+`roscore`
+
+`roslaunch simple_voice simple_voice.launch` 
+
+`rosrun simple_voice recognition.py` 
+
+`roslaunch simple_voice simple_speaker.launch`and say "请给我一个杯子" （Please give me a cup）
+
+If it doesn't work, input the follow command in a new terminal to let it say "大家好！" (Hey guys!) and then speak to it again.
+
+`rostopic pub /speak_string std_msgs/String -- '大家好！'`
